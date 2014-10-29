@@ -1,6 +1,11 @@
 # StatiStica
 
-TODO: Write a gem description
+StatiStica adds statistical functions to Ruby.
+
+## Functions
+
+The following functions are currently provided:
+
 
 ## Installation
 
@@ -17,10 +22,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install stati_stica
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
