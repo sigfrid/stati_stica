@@ -16,6 +16,16 @@ mean = StatiStica::Mean.new(['1',2,3])    # =>  ArgumentError
 mean = StatiStica::Mean.new([])           # =>  ArgumentError
 ```
 
+### [Standard Deviation](http://www.stats.gla.ac.uk/steps/glossary/presenting_data.html#standev)
+
+```ruby
+sd = StatiStica::StandardDeviation.new([2,4,4,4,5,5,7,9])
+sd.value                                                  # => 2.0
+
+StatiStica::StandardDeviation.new(['2',4,4,4,5,5,7,9])    # =>  ArgumentError
+StatiStica::StandardDeviation.new([])                     # =>  ArgumentError
+```
+
 
 ## Installation
 
