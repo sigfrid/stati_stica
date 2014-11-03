@@ -10,10 +10,10 @@ The following functions are currently provided:
 
 ```ruby
 mean = StatiStica::Mean.new([1,2,3])
-mean.value                                # => 2.0
+mean.value                        # => 2.0
 
-mean = StatiStica::Mean.new(['1',2,3])    # =>  ArgumentError
-mean = StatiStica::Mean.new([])           # =>  ArgumentError
+StatiStica::Mean.new(['1',2,3])   # =>  ArgumentError
+StatiStica::Mean.new([])          # =>  ArgumentError
 ```
 
 ### [Standard Deviation](http://www.stats.gla.ac.uk/steps/glossary/presenting_data.html#standev)
