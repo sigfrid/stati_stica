@@ -6,6 +6,16 @@ StatiStica adds statistical functions to Ruby.
 
 The following functions are currently provided:
 
+### [Mean](http://www.stats.gla.ac.uk/steps/glossary/presenting_data.html#sampmean)
+
+```ruby
+mean = StatiStica::Mean.new([1,2,3])
+mean.value                                # => 2.0
+
+mean = StatiStica::Mean.new(['1',2,3])    # =>  ArgumentError
+mean = StatiStica::Mean.new([])           # =>  ArgumentError
+```
+
 
 ## Installation
 
