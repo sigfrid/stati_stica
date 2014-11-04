@@ -26,6 +26,27 @@ StatiStica::StandardDeviation.new(['2',4,4,4,5,5,7,9])    # =>  ArgumentError
 StatiStica::StandardDeviation.new([])                     # =>  ArgumentError
 ```
 
+### [Linear Regression](http://en.wikipedia.org/wiki/Linear_regression)
+
+
+```ruby
+lr = StatiStica::LinearRegression.new(dx: [1,2,3])
+lr.slope                                                  # => 1.0
+lr.offset                                                 # => 1.0
+lr.fit                                                    # => [2,2,2]
+
+lr = StatiStica::LinearRegression.new(dx: [1,3,2], dy: [4,5,6])
+
+lr.slope                                                  # => 0.0
+lr.offset                                                 # => 5.0
+lr.fit                                                    # => [5,5,5]
+
+StatiStica::LinearRegression.new(dx: [0,1,2], dy: [3,4])  # =>  ArgumentError
+                   
+```
+
+
+
 
 ## Installation
 
