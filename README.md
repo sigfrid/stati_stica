@@ -36,6 +36,19 @@ StatiStica::TwoDStandardDeviation.new(dx: [1,2], dy: [4,5,6])       # =>  Argume
 StatiStica::TwoDStandardDeviation.new(dx: ['1x',3,2], dy: [4,5,6])  # =>  ArgumentError
 ```
 
+### [Coefficient Of Determination](http://en.wikipedia.org/wiki/Coefficient_of_determination)
+
+```ruby
+r2 = StatiStica::CoefficientOfDetermination.new(dx: [1,3,2], dy: [4,5,6])
+r2.value                                                                  # => 14.5
+
+r2 = StatiStica::CoefficientOfDetermination.new(dx: [1,3,2], dy: [4,4,4])
+r2.value                                                                  # => 1
+
+StatiStica::CoefficientOfDetermination.new(dx: [1,2], dy: [4,5,6])        # =>  ArgumentError
+StatiStica::CoefficientOfDetermination.new(dx: ['1x',3,2], dy: [4,5,6])   # =>  ArgumentError
+```
+
 ### [Linear Regression](http://en.wikipedia.org/wiki/Linear_regression)
 
 
