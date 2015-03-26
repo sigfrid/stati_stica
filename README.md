@@ -37,11 +37,13 @@ lr.fit                                                    # => [2,2,2]
 
 lr = StatiStica::LinearRegression.new(dx: [1,3,2], dy: [4,5,6])
 
-lr.slope                                                  # => 0.0
-lr.offset                                                 # => 5.0
-lr.fit                                                    # => [5,5,5]
+lr.slope                                                                # => 0.0
+lr.offset                                                               # => 5.0
+lr.fit                                                                  # => [5,5,5]
+lr.standard_error                                                       # => 1.4142135623730951
 
-StatiStica::LinearRegression.new(dx: [0,1,2], dy: [3,4])  # =>  ArgumentError
+StatiStica::LinearRegression.new(dx: [0,1,2], dy: [3,4])                # =>  ArgumentError
+StatiStica::LinearRegression.new(dx: [1,2], dy: [3,4]).standard_error   # =>  ArgumentError
                    
 ```
 

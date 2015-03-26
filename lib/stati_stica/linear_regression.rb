@@ -40,6 +40,13 @@ module StatiStica
       @dx.map{ |value| predict(value) }
     end
 
+    def standard_error
+      raise ArgumentError unless @series_size > 2
+
+      sum_y = @dy.zip(self.fit).map{ |y, fit| (fit - y) **2 }.inject(0, &:+)
+      Math.sqrt(sum_y / (@series_size - 2))
+    end
+
 
     private
 

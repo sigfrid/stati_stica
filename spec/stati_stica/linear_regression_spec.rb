@@ -53,6 +53,30 @@ module StatiStica
         end
       end
     end
+
+    describe '#standard_error' do
+      context "when series does not have at least 3 values" do
+        it "raises an ArgumentError" do
+         expect { StatiStica::LinearRegression.new(dx: [1,2], dy: [4,5]).standard_error }.to raise_error(ArgumentError)
+        end
+      end
+
+      context "when series have at least 3 values" do
+        it "calculates standard_error of the estimate" do
+         expect(truncated(StatiStica::LinearRegression.new(dx: [1,3,2], dy: [4,5,6]).standard_error)).to eq(truncated(1.4142135623730951))
+        end
+
+        it "calculates standard_error as float" do
+         expect(StatiStica::LinearRegression.new(dx: [1,3,2], dy: [4,5,6]).standard_error).to be_a(Float)
+        end
+      end
+    end
+
+private 
+
+    def truncated(float)
+      Integer(float * 1000) / Float(1000)
+    end
   end
 end
 
