@@ -86,4 +86,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  def truncated(float)
+    Integer(float * 1000) / Float(1000)
+  end
 end

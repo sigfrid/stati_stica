@@ -17,7 +17,7 @@ module StatiStica
     describe "#value" do
       context "when sample contains only objects convertible to float" do
         it "returns the standard deviation of the passed array" do
-          expect(StatiStica::TwoDStandardDeviation.new(dx: [1,3,2], dy: [4,5,6]).value).to eq(3.1091263510296048)
+          expect(truncated(StatiStica::TwoDStandardDeviation.new(dx: [1,3,2], dy: [4,5,6]).value)).to eq(truncated(3.1091263510296048))
         end
 
         it "returns the standard deviation as float" do

@@ -166,12 +166,6 @@ module StatiStica
         end
       end
     end
-
-private 
-
-    def truncated(float)
-      Integer(float * 1000) / Float(1000)
-    end
   end
 end
 
