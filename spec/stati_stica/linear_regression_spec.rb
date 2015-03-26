@@ -42,13 +42,13 @@ module StatiStica
 
     describe "#fit" do
       context "when single series is passed as argument" do
-        it "calculates the line's value for at the points passed as argument" do
+        it "calculates the line's value for the points passed as argument" do
           expect(StatiStica::LinearRegression.new(dx: [1,3,2]).fit).to eq([2,2,2])
         end
       end
 
       context "when two series are passed as arguments" do
-        it "calculates the line's value for at the points passed as argument" do
+        it "calculates the line's value for the points passed as argument" do
           expect(StatiStica::LinearRegression.new(dx: [1,3,2], dy: [4,5,6]).fit).to eq([5,5,5])
         end
       end
