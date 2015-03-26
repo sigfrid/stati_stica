@@ -1,5 +1,8 @@
 module StatiStica
   class LinearRegression
+    require_relative "t_distribution"
+    require_relative "mean"
+
     def initialize(dx:, dy: nil)
       if dx.all? {|x| x.class == Array}
         @number_of_series = dx.size
@@ -47,6 +50,29 @@ module StatiStica
       Math.sqrt(sum_y / (@series_size - 2))
     end
 
+    def lower_confidence_bound(x, probability, error = standard_error)
+      bounds = Array(x).each_with_object(Array.new) do |x, bounds|
+        bounds << predict(x) - confidence_level_at(x, probability, error)
+      end
+
+      bounds.one? ? bounds.first : bounds
+    end
+
+    def upper_confidence_bound(x, probability, error = standard_error)
+      bounds = Array(x).each_with_object(Array.new) do |x, bounds|
+        bounds << predict(x) + confidence_level_at(x, probability, error)
+      end
+
+      bounds.one? ? bounds.first : bounds
+    end
+
+    def confidence_bounds(x, probability, error = standard_error)
+      bounds = Array(x).each_with_object(Array.new) do |x, bounds|
+        bounds << [lower_confidence_bound(x, probability, error), upper_confidence_bound(x, probability, error)]
+      end
+
+      bounds.one? ? bounds.first : bounds
+    end
 
     private
 
@@ -56,6 +82,24 @@ module StatiStica
 
     def predict(x)
       @slope * x + @offset
+    end
+
+    def confidence_level_at(x, probability, error = standard_error)
+      raise ArgumentError unless @series_size > 2
+      
+      TDistribution.value_for(probability, degree_of_freedom) * error * last(x)
+    end
+
+    def last(x)
+      mean = StatiStica::Mean.new(@dx).value
+      
+      diff_from_mean_square = (x - mean) **2
+      sum_squares_deviations = @dx.map{ |x| (x - mean) **2 }.inject(0, &:+)
+      Math.sqrt((1.0 / @series_size) + (diff_from_mean_square / sum_squares_deviations))
+    end
+
+    def degree_of_freedom 
+      (@series_size - 2) * @number_of_series
     end
   end
 end
