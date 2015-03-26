@@ -22,8 +22,18 @@ StatiStica::Mean.new([])          # =>  ArgumentError
 sd = StatiStica::StandardDeviation.new([2,4,4,4,5,5,7,9])
 sd.value                                                  # => 2.0
 
-StatiStica::StandardDeviation.new(['2',4,4,4,5,5,7,9])    # =>  ArgumentError
+StatiStica::StandardDeviation.new(['2x',4,4,4,5,5,7,9])   # =>  ArgumentError
 StatiStica::StandardDeviation.new([])                     # =>  ArgumentError
+```
+
+### Two D Standard Deviation
+
+```ruby
+sd = StatiStica::TwoDStandardDeviation.new(dx: [1,3,2], dy: [4,5,6])
+sd.value                                                            # => 3.1091263510296048
+
+StatiStica::TwoDStandardDeviation.new(dx: [1,2], dy: [4,5,6])       # =>  ArgumentError
+StatiStica::TwoDStandardDeviation.new(dx: ['1x',3,2], dy: [4,5,6])  # =>  ArgumentError
 ```
 
 ### [Linear Regression](http://en.wikipedia.org/wiki/Linear_regression)
