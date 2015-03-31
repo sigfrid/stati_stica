@@ -11,11 +11,6 @@ module StatiStica
 
     def value
       mean = StatiStica::Mean.new(@dy).value
-
-      #if mean < 1
-      #  dy = dy.collect {|y| y*1000}
-      #  dx = dx.collect {|x| x*1000}
-      #end
       
       ess = @dx.map{ |x| (x - mean) **2 }.inject(0, &:+)
       tss = @dy.map{ |y| (y - mean) **2 }.inject(0, &:+)
