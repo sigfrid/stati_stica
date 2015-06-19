@@ -9,7 +9,7 @@ module StatiStica
 
     def value
       mean = StatiStica::Mean.new(@sample).value
-      variance = @sample.inject(0) { |sum, element| sum + (element - mean) ** 2 } / @sample.size
+      variance = @sample.inject(0) { |sum, element| sum + (element - mean) ** 2 } / (@sample.size - 1)
       Math.sqrt(variance)
     end
   end
