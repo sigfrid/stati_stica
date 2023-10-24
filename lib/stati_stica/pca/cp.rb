@@ -2,8 +2,8 @@ module StatiStica
   module PCA
     class Cp
       def initialize(lsl:, usl:, sd:)
-        @usl = Float(usl)
         @lsl = Float(lsl)
+        @usl = Float(usl)
         @sd = Float(sd)
       end
 
