@@ -7,6 +7,7 @@ require "stati_stica/linear_regression"
 require "stati_stica/coefficient_of_determination"
 require "stati_stica/pca/cp"
 require "stati_stica/pca/cpk"
+require "stati_stica/pca/cp_upper"
 
 module StatiStica
   # Your code goes here...
