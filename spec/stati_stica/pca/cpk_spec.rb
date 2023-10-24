@@ -20,7 +20,8 @@ module StatiStica
       end
       describe "#value" do
         context "when parameters contains only objects convertible to float" do
-          it "returns the ratio between specification and process width" do
+          it "returns the ratio between distance from the mean to nearest specification limit
+              and the distance from the mean to the process edge" do
             # 24 - 9 / 3 * 2 = 15 / 6 = 2.5
             # 9 - 0 / 3 * 2  = 9 / 6 = 1.5
             # min(2.5, 1.5) = 1.5
