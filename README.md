@@ -89,6 +89,18 @@ StatiStica::PCA::Cp.new(lsl: 0, usl: 24)                # =>  ArgumentError
 StatiStica::PCA::Cp.new(lsl: 0, usl: 24, sd: "2x")      # =>  ArgumentError
 ```
 
+### [PCA::Cpk](https://en.wikipedia.org/wiki/Process_capability_index)
+```ruby
+cp = StatiStica::PCA::Cpk.new(lsl: 0, usl: 24, mean: 9, sd: "2")
+cp.value                                                          # => 1.5
+
+cp = StatiStica::PCA::Cpk.new(lsl: 0, usl: 24, mean: 9, sd: 0)
+cp.value                                                          # => Infinity
+
+StatiStica::PCA::Cpk.new(lsl: 0, usl: 24, mean: 9)                # =>  ArgumentError
+StatiStica::PCA::Cpk.new(lsl: 0, usl: 24, mean: 9, sd: "2x")      # =>  ArgumentError
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
