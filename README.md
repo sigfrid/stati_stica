@@ -53,7 +53,6 @@ lr.offset                                                 # => 1.0
 lr.fit                                                    # => [2,2,2]
 
 lr = StatiStica::LinearRegression.new(dx: [1,3,2], dy: [4,5,6])
-
 lr.slope                                                          # => 0.0
 lr.offset                                                         # => 5.0
 lr.fit                                                            # => [5,5,5]
@@ -76,6 +75,18 @@ StatiStica::LinearRegression.new(dx: [0,1,2], dy: [3,4])          # =>  Argument
 2el_series.confidence_bounds(2, 95)                               # =>  ArgumentError
 2el_series.lower_confidence_bound(2, 95)                          # =>  ArgumentError
 2el_series.upper_confidence_bound(2, 95)                          # =>  ArgumentError            
+```
+
+### [PCA::Cp](https://en.wikipedia.org/wiki/Process_capability_index)
+```ruby
+cp = StatiStica::PCA::Cp.new(lsl: 0, usl: 24, sd: "2")
+cp.value                                                # => 2.0
+
+cp = StatiStica::PCA::Cp.new(lsl: 0, usl: 24, sd: 0)
+cp.value                                                # => Infinity
+
+StatiStica::PCA::Cp.new(lsl: 0, usl: 24)                # =>  ArgumentError
+StatiStica::PCA::Cp.new(lsl: 0, usl: 24, sd: "2x")      # =>  ArgumentError
 ```
 
 ## Installation

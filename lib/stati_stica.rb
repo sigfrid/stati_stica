@@ -5,6 +5,7 @@ require "stati_stica/standard_deviation"
 require "stati_stica/two_d_standard_deviation"
 require "stati_stica/linear_regression"
 require "stati_stica/coefficient_of_determination"
+require "stati_stica/pca/cp"
 
 
 module StatiStica
