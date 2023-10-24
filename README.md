@@ -109,8 +109,20 @@ cpu.value                                                          # => 2.5
 cpu = StatiStica::PCA::CpUpper.new(usl: 24, mean: 9, sd: 0)
 cpu.value                                                          # => Infinity
 
-StatiStica::PCA::CpUpper.new(usl: 24, mean: 9)             # =>  ArgumentError
-StatiStica::PCA::CpUpper.new(usl: 24, mean: 9, sd: "2x")   # =>  ArgumentError
+StatiStica::PCA::CpUpper.new(usl: 24, mean: 9)                     # =>  ArgumentError
+StatiStica::PCA::CpUpper.new(usl: 24, mean: 9, sd: "2x")           # =>  ArgumentError
+```
+
+### [PCA::CpLower](https://en.wikipedia.org/wiki/Process_capability_index)
+```ruby
+cpl = StatiStica::PCA::CpLower.new(lsl: 0, mean: 9, sd: 2)
+cpl.value                                                          # => 1.5
+
+cpl = StatiStica::PCA::CpLower.new(lsl: 0, mean: 9, sd: 0)
+cpl.value                                                          # => Infinity
+
+StatiStica::PCA::CpLower.new(lsl: 0, mean: 9)                     # =>  ArgumentError
+StatiStica::PCA::CpLower.new(lsl: 0, mean: 9, sd: "2x")           # =>  ArgumentError
 ```
 
 ## Installation
