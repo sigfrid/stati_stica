@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "stati_stica"
   spec.version       = StatiStica::VERSION
   spec.authors       = ["Sigfrid Dusci"]
-  spec.email         = ["sig@acsinfo.ch"]
+  spec.email         = ["sig@inforlife.ch"]
   spec.summary       = "Statistical functions for Ruby"
   spec.homepage      = "https://github.com/sigfrid/stati_stica"
   spec.license       = "MIT"
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.7"
+  spec.add_development_dependency "bundler", "~> 2.1"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.1.0"
 end

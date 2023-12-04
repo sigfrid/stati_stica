@@ -1,0 +1,34 @@
+name: continuous-integration
+
+on:
+  pull_request:
+    branches: [ '*' ]
+
+  push:
+    branches: [ master ]
+
+jobs:
+  github-continuous-integration:
+    runs-on: ubuntu-22.04
+    if: "! contains(github.event.head_commit.message, 'skip ci')"
+
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # ruby-version: from .ruby-version
+          bundler-cache: true
+
+      - name: Install gems
+        env:
+          BUNDLE_WITHOUT: development production
+        run: |
+          gem update --system
+          gem install bundler --no-document
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Run RSpec
+        run: bin/rspec spec --fail-fast --format progress
