@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "stati_stica"
   spec.version       = StatiStica::VERSION
   spec.authors       = ["Sigfrid Dusci"]
-  spec.email         = ["sig@acsinfo.ch"]
+  spec.email         = ["sig@inforlife.ch"]
   spec.summary       = "Statistical functions for Ruby"
   spec.homepage      = "https://github.com/sigfrid/stati_stica"
   spec.license       = "MIT"
