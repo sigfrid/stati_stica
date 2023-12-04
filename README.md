@@ -53,7 +53,6 @@ lr.offset                                                 # => 1.0
 lr.fit                                                    # => [2,2,2]
 
 lr = StatiStica::LinearRegression.new(dx: [1,3,2], dy: [4,5,6])
-
 lr.slope                                                          # => 0.0
 lr.offset                                                         # => 5.0
 lr.fit                                                            # => [5,5,5]
@@ -76,6 +75,54 @@ StatiStica::LinearRegression.new(dx: [0,1,2], dy: [3,4])          # =>  Argument
 2el_series.confidence_bounds(2, 95)                               # =>  ArgumentError
 2el_series.lower_confidence_bound(2, 95)                          # =>  ArgumentError
 2el_series.upper_confidence_bound(2, 95)                          # =>  ArgumentError            
+```
+
+### [PCA::Cp](https://en.wikipedia.org/wiki/Process_capability_index)
+```ruby
+cp = StatiStica::PCA::Cp.new(lsl: 0, usl: 24, sd: "2")
+cp.value                                                # => 2.0
+
+cp = StatiStica::PCA::Cp.new(lsl: 0, usl: 24, sd: 0)
+cp.value                                                # => Infinity
+
+StatiStica::PCA::Cp.new(lsl: 0, usl: 24)                # =>  ArgumentError
+StatiStica::PCA::Cp.new(lsl: 0, usl: 24, sd: "2x")      # =>  ArgumentError
+```
+
+### [PCA::Cpk](https://en.wikipedia.org/wiki/Process_capability_index)
+```ruby
+cpk = StatiStica::PCA::Cpk.new(lsl: 0, usl: 24, mean: 9, sd: "2")
+cpk.value                                                          # => 1.5
+
+cpk = StatiStica::PCA::Cpk.new(lsl: 0, usl: 24, mean: 9, sd: 0)
+cpk.value                                                          # => Infinity
+
+StatiStica::PCA::Cpk.new(lsl: 0, usl: 24, mean: 9)                # =>  ArgumentError
+StatiStica::PCA::Cpk.new(lsl: 0, usl: 24, mean: 9, sd: "2x")      # =>  ArgumentError
+```
+
+### [PCA::CpUpper](https://en.wikipedia.org/wiki/Process_capability_index)
+```ruby
+cpu = StatiStica::PCA::CpUpper.new(usl: 24, mean: 9, sd: 2)
+cpu.value                                                          # => 2.5
+
+cpu = StatiStica::PCA::CpUpper.new(usl: 24, mean: 9, sd: 0)
+cpu.value                                                          # => Infinity
+
+StatiStica::PCA::CpUpper.new(usl: 24, mean: 9)                     # =>  ArgumentError
+StatiStica::PCA::CpUpper.new(usl: 24, mean: 9, sd: "2x")           # =>  ArgumentError
+```
+
+### [PCA::CpLower](https://en.wikipedia.org/wiki/Process_capability_index)
+```ruby
+cpl = StatiStica::PCA::CpLower.new(lsl: 0, mean: 9, sd: 2)
+cpl.value                                                          # => 1.5
+
+cpl = StatiStica::PCA::CpLower.new(lsl: 0, mean: 9, sd: 0)
+cpl.value                                                          # => Infinity
+
+StatiStica::PCA::CpLower.new(lsl: 0, mean: 9)                     # =>  ArgumentError
+StatiStica::PCA::CpLower.new(lsl: 0, mean: 9, sd: "2x")           # =>  ArgumentError
 ```
 
 ## Installation

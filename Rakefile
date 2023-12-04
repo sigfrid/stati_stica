@@ -1,5 +1,6 @@
 require "bundler/gem_tasks"
+require "rspec/core/rake_task"
 
-task :console do
-  exec "irb -r stati_stica -I ./lib"
-end
+RSpec::Core::RakeTask.new(:spec)
+
+task :default => :spec
