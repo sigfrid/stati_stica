@@ -1,0 +1,6 @@
+name: publish-to-rubygems
+on:
+  release:
+    types: [published]
+jobs:
+  rubygems-publish:
